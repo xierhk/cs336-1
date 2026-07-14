@@ -36,6 +36,7 @@ def main():
     parser.add_argument("--exp_note", type=str, default="baseline", help="消融实验备注 (例如: no_dropout, gelu_ffn, deep_narrow)")
     parser.add_argument("--train_data", type=str, default="data/train.bin", help="训练集文件路径")
     parser.add_argument("--val_data", type=str, default="data/valid.bin", help="验证集文件路径")
+    parser.add_argument("--vocab_size", type=int, default=10000, help="词表大小")
     # ... 可以根据需要添加更多（如 dropout等）
     #   WANDB_MODE=disabled python train.py 可以关掉wandb   
 
@@ -65,7 +66,7 @@ def main():
     # 初始化模型与优化器
     # ==========================================
     model = transformer_lm(
-        vocab_size=10000,
+        vocab_size=args.vocab_size,
         context_length=args.context_length,
         d_model=args.d_model,
         num_heads=args.num_heads,
