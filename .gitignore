@@ -167,3 +167,6 @@ data/
 
 # Weights & Biases experiment logs
 wandb/
+
+# Claude Code settings
+.claude/
